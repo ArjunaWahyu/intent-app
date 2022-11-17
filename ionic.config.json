@@ -1,0 +1,8 @@
+{
+  "name": "Intent App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react",
+  "id": "1bcc7767"
+}
