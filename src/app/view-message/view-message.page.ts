@@ -75,7 +75,7 @@ export class ViewMessagePage implements OnInit {
         console.log(key);
         this.storage.get(key).then((ruang: iRuang) => {
           console.log(ruang);
-          if (ruang.namaRuang != null) {
+          if (ruang.namaRuang != null && ruang.kodeGedung == this.id) {
             this.ruangs.push(ruang);
             console.log("ruang "+ruang.namaRuang);
           }
