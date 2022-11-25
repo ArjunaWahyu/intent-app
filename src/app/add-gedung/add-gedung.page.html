@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>addG gedung</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item fill="outline">
+      <ion-label position="floating">Kode Gedung</ion-label>
+      <ion-input type="text" [(ngModel)]='kodeGedung'></ion-input>
+    </ion-item>
+    <ion-item fill="outline">
+      <ion-label position="floating">Nama Gedung</ion-label>
+      <ion-input type="text" [(ngModel)]='namaGedung'></ion-input>
+    </ion-item>
+    <ion-item fill="outline">
+      <ion-label position="floating">Kapasitas</ion-label>
+      <ion-input type="number" [(ngModel)]='kapasitas'></ion-input>
+    </ion-item>
+    <ion-item class="ion-justify-content-center">
+      <ion-button expand="block" fill="outline" (click)="addData()">Add Gedung</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

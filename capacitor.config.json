@@ -1,6 +1,6 @@
 {
 	"appId": "io.ionic.starter",
-	"appName": "Intent App",
-	"webDir": "build",
+	"appName": "Ionic Angular Database",
+	"webDir": "www",
 	"bundledWebRuntime": false
 }

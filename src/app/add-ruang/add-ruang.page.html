@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>add ruang {{kodeGedung}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item fill="outline">
+      <ion-label position="floating">Kode Ruang</ion-label>
+      <ion-input type="text" [(ngModel)]='kodeRuang'></ion-input>
+    </ion-item>
+    <ion-item fill="outline">
+      <ion-label position="floating">Nama Ruang</ion-label>
+      <ion-input type="text" [(ngModel)]='namaRuang'></ion-input>
+    </ion-item>
+    <ion-item fill="outline">
+      <ion-label position="floating">Kapasitas</ion-label>
+      <ion-input type="number" [(ngModel)]='kapasitas'></ion-input>
+    </ion-item>
+    <ion-item class="ion-justify-content-center">
+      <ion-button expand="block" fill="outline" (click)="addData()">Add Ruang</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
