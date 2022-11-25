@@ -17,6 +17,7 @@ export class ViewMessagePage implements OnInit {
 
   private storageService: any;
   private storage: any;
+  private id: any;
 
   ruangs: iRuang[] = [];
   constructor(
@@ -25,23 +26,28 @@ export class ViewMessagePage implements OnInit {
     router: Router,
     storageService: StorageService,
     storage: Storage
-  ) { 
-    this.router = router; 
+  ) {
+    this.router = router;
     this.storageService = storageService;
     this.storage = storage;
   }
 
   ngOnInit() {
     this.storage.create();
-    const id = this.activatedRoute.snapshot.paramMap.get('id') as string;
-    // this.message = this.data.getMessageById(parseInt(id, 10));
-    this.data.getGedungById(id).then(gedung => {
+    this.id = this.activatedRoute.snapshot.paramMap.get('id') as string;
+  }
+  
+  ionViewWillEnter() {
+    this.data.getGedungById(this.id).then(gedung => {
       this.gedung = gedung;
     });
+    this.getListRuangs();
   }
 
-  ionViewWillEnter() {
-    this.getListRuangs();
+  ionViewDidEnter() {
+    if (!this.gedung) {
+      this.router.navigate(['/home']);
+    }
   }
 
   refresh(ev: any) {
@@ -50,9 +56,9 @@ export class ViewMessagePage implements OnInit {
     }, 3000);
   }
 
-  goToAddRuang(){
+  goToAddRuang() {
     console.log("goToAddRuang");
-    this.router.navigate(['/add-ruang/'+this.gedung.kodeGedung]);
+    this.router.navigate(['/add-ruang/' + this.gedung.kodeGedung]);
   }
 
   getBackButtonText() {
@@ -61,16 +67,19 @@ export class ViewMessagePage implements OnInit {
     return mode === 'ios' ? 'Inbox' : '';
   }
 
-  async getListRuangs(){
+  async getListRuangs() {
     let keys = await this.storage.keys();
     this.ruangs = []
     keys.forEach((key: any) => {
-      if(key.includes(this.gedung.kodeGedung)){
-        this.storage.get(key).then((ruang: any) => {
-          this.ruangs.push(ruang);
+      console.log(key);
+        console.log(key);
+        this.storage.get(key).then((ruang: iRuang) => {
           console.log(ruang);
+          if (ruang.namaRuang != null) {
+            this.ruangs.push(ruang);
+            console.log("ruang "+ruang.namaRuang);
+          }
         });
-      }
     });
   }
 }

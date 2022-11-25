@@ -1,10 +1,13 @@
-<ion-item *ngIf="ruang"  [detail]="false">
+<ion-item *ngIf="ruang" [detail]="false">
   <ion-label class="ion-text-wrap">
     <h2>
-      {{ ruang.namaRuang}}
+      {{ ruang.namaRuang }}
       <span class="date">
-        <ion-note>{{ ruang.kodeRuang }}</ion-note>
-        <ion-icon name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon>
+        <!-- <ion-note>{{ ruang.kodeRuang }}</ion-note> -->
+          <ion-button (click)="deleteRuang(ruang.kodeRuang, ruang.kodeGedung)">
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
+        <!-- <ion-icon name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon> -->
       </span>
     </h2>
     <h3>{{ ruang.kapasitas }}</h3>

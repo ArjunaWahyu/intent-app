@@ -62,9 +62,11 @@ export class HomePage implements OnInit {
     // console.log(keys);
     this.gedungs = [];
     keys.forEach(async (key: any) => {
-      let value = await this.storage.get(key);
-      this.gedungs.push(value);
-      console.log(value);
+      let value: iGedung = await this.storage.get(key);
+      if(value.namaGedung != null){
+        this.gedungs.push(value);
+        console.log(value);
+      }
     });
   }
 
