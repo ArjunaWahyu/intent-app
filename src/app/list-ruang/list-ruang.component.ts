@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { iRuang } from '../services/data.service';
 
 @Component({
   selector: 'app-list-ruang',
@@ -6,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-ruang.component.scss'],
 })
 export class ListRuangComponent implements OnInit {
-
-  constructor() { }
+  @Input() ruang?: iRuang;
 
   ngOnInit() {}
+
+  isIos() {
+    const win = window as any;
+    return win && win.Ionic && win.Ionic.mode === 'ios';
+  }
 
 }

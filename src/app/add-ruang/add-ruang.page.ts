@@ -36,7 +36,7 @@ export class AddRuangPage implements OnInit {
       kodeGedung: this.kodeGedung?this.kodeGedung:''
     }).then((res) => {
       console.log(res);
-      this.router.navigate(['/message']);
+      this.router.navigate(['/view-message/'+this.kodeGedung]);
     });
   }
 

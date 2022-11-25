@@ -41,5 +41,4 @@ export class AddGedungPage implements OnInit {
   goToHome(){
     this.router.navigate(['/home']);
   }
-
 }

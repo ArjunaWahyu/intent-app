@@ -16,6 +16,13 @@ export interface iGedung {
   kapasitas: number;
 }
 
+export interface iRuang {
+  kodeRuang: string;
+  namaRuang: string;
+  kapasitas: number;
+  kodeGedung: string;
+}
+
 class Gedung {
   kodeGedung: string = '';
   namaGedung: string = '';
